@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
+    
+}
+
+html{
+  scroll-behavior: smooth;
+  background: linear-gradient(rgba(11,8,33,0.7),rgba(11,8,33,0.7)), url("./assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body{
+  
+  color: white;
+}
+
+
+
+/*  Cards Animation */
+@keyframes cardsAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2rem);
+    }
+  }
+  
+  .cards-animate {
+    animation: cardsAnimation 5s infinite ease-in-out;
+  }
+
+
+
+
+  
+
+
+  /* Flipping CArds */
+
+  .card-container {
+    perspective: 1000px; /* Creates a 3D perspective for the card flip effect */
+    width: 300px; /* Set the width of the card container */
+  }
+  
+  .card {
+    width: 100%;
+    height: 370px; /* Set the height of the card */
+    transition: transform 0.6s; /* Add a smooth transition for the flip effect */
+    transform-style: preserve-3d; /* Ensures the child elements preserve their 3D transformations */
+    cursor: pointer; /* Change the cursor to indicate that it's clickable */
+  }
+  
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side when not flipped */
+  }
+  
+  .front {
+    z-index: 2; /* Display the front side above the back side */
+  }
+  
+  .back {
+    transform: rotateY(180deg); /* Flips the back side, initially hidden */
+  }
+  
+  /* Add a hover effect to flip the card on mouseover */
+  .card:hover {
+    transform: rotateY(180deg);
+  }
+
+
+  .about-img{
+    perspective: 1000px;
+    display: inline-block;
+    
+  }
+
+  .about-img img{
+    width: auto;
+    /* height: 150px; */
+    transform-origin: left center;
+    transform: perspective(1000px) rotateY(20deg);
+  }
+  
